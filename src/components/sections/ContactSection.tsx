@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 import { motion } from 'framer-motion'
-import emailjs from 'emailjs-com'
+import emailjs from '@emailjs/browser'
 import { FaInstagram, FaPhone, FaLocationDot } from 'react-icons/fa6'
 import Reveal from '../common/Reveal'
 import MapEmbedSection from './MapEmbedSection'
