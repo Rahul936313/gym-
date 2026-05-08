@@ -9,7 +9,7 @@ export default function AboutSection() {
         <Reveal>
           <div className="flex flex-col gap-4 items-end justify-between sm:flex-row sm:gap-6">
             <div>
-              <div className="text-xs font-bold tracking-widest text-white/50">ABOUT INFINITYX</div>
+              <div className="text-xs font-bold tracking-widest text-white/50">ABOUT INFINITY X Fitness</div>
               <h2 className="mt-3 text-2xl sm:text-3xl md:text-4xl font-black tracking-tight">
                 Elite coaching. Hard discipline. Real results.
               </h2>
@@ -50,16 +50,16 @@ export default function AboutSection() {
           <div className="space-y-4">
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="col-span-1 sm:col-span-1">
-                <StatCounter label="Members" value={2400} suffix="+" />
+                <StatCounter label="Members" value={100} suffix="+" />
               </div>
               <div className="col-span-1 sm:col-span-1">
-                <StatCounter label="Trainers" value={48} suffix="+" />
+                <StatCounter label="Area" value={250} suffix="sq.feet+" />
               </div>
               <div className="col-span-1 sm:col-span-1">
-                <StatCounter label="Equipment" value={320} suffix="+" />
+                <StatCounter label="Equipment Weight" value={320} suffix="kg+" />
               </div>
               <div className="col-span-1 sm:col-span-1">
-                <StatCounter label="Experience" value={10} suffix="Y" />
+                <StatCounter label="Experience" value={8} suffix="years+" />
               </div>
             </div>
 

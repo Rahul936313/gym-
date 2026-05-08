@@ -56,7 +56,7 @@ export default function HeroSection() {
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 sm:px-4 sm:py-2 text-[10px] sm:text-xs font-bold tracking-widest text-white/70">
               <span className="h-1.5 w-1.5 rounded-full bg-red-500 shadow-[0_0_22px_rgba(255,42,42,0.6)]" />
-              INFINITYX FITNESS
+              INFINITY X FITNESS
             </div>
 
             <h1 className="mt-4 sm:mt-5 md:mt-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-[1.05] tracking-tight">
@@ -147,7 +147,7 @@ export default function HeroSection() {
                 >
                   <div className="text-xs font-bold text-white/60">Progress</div>
                   <div className="mt-1 text-xl sm:text-2xl font-black text-white">
-                    +<span className="text-[#c0c0c0]">896</span>
+                    +<span className="text-[#c0c0c0]">999</span>
                   </div>
                 </div>
               </div>

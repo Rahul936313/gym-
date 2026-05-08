@@ -36,7 +36,7 @@ export default function Navbar() {
               </span>
             </span>
             <div className="leading-tight">
-              <div className="text-sm font-semibold tracking-wide text-white/90">INFINITYX</div>
+              <div className="text-sm font-semibold tracking-wide text-white/90">INFINITY X FITNESS</div>
               <div className="text-[11px] font-medium text-white/50">{site.tagline}</div>
             </div>
           </Link>

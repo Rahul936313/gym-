@@ -66,7 +66,7 @@ export default function ServicesSection() {
                 </div>
                 <div className="mt-4 text-sm leading-relaxed text-white/65">{s.desc}</div>
                 <div className="mt-5 text-xs font-extrabold tracking-widest text-red-200/80">
-                  NEON COACHING
+                  
                 </div>
               </div>
             </motion.div>
