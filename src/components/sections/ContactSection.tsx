@@ -1,17 +1,8 @@
-
-
-
 import { FaInstagram, FaPhone, FaLocationDot } from 'react-icons/fa6'
 import Reveal from '../common/Reveal'
 import MapEmbedSection from './MapEmbedSection'
 import { site } from '../../content/site'
-
-
- 
-     
-
-  
-    <section id="contact" className="px-4 py-16 md:px-6 md:py-24" aria-label="Contact">
+ <section id="contact" className="px-4 py-16 md:px-6 md:py-24" aria-label="Contact">
       <div className="mx-auto max-w-7xl">
         <Reveal>
           <div>
