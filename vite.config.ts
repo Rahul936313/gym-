@@ -13,13 +13,7 @@ export default defineConfig({
     },
     rollupOptions: {
       output: {
-        manualChunks: {
-          'vendor-react': ['react', 'react-dom'],
-          'vendor-motion': ['framer-motion'],
-          'vendor-swiper': ['swiper'],
-          'vendor-router': ['react-router-dom'],
-          'vendor-icons': ['react-icons'],
-        },
+         
       },
     },
   },
