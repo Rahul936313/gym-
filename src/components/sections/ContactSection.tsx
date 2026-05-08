@@ -98,10 +98,6 @@ CONTACT </div>
       </div>
     </div>
   </div>
-</section>
-```
-
-)
-}
+</section> )}
 
 export default ContactSection
