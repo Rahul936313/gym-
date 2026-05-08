@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg0: #000;
+  --bg1: #07070a;
+  --red: #ff2a2a;
+  --silver: #c0c0c0;
+  --white: #ffffff;
+  --glass: rgba(255, 255, 255, 0.06);
+  --glass2: rgba(255, 255, 255, 0.1);
+  --ring-red: rgba(255, 42, 42, 0.35);
+  --ring-white: rgba(255, 255, 255, 0.25);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(1200px 800px at 15% -20%, rgba(255, 42, 42, 0.12), transparent 60%),
+    radial-gradient(1000px 800px at 85% 0%, rgba(255, 255, 255, 0.08), transparent 55%),
+    linear-gradient(180deg, var(--bg0), var(--bg1));
+  color: var(--white);
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Optimize touch interactions */
+button, a, input, textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Premium scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 42, 42, 0.35);
+  border-radius: 999px;
+  border: 2px solid rgba(0, 0, 0, 0.6);
+}
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* Utility: glass panel */
+.glass {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow:
+    0 0 0 1px rgba(255, 42, 42, 0.06) inset,
+    0 18px 60px rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(10px);
+}
+
+.neon-ring {
+  box-shadow:
+    0 0 0 1px rgba(255, 42, 42, 0.25) inset,
+    0 0 45px rgba(255, 42, 42, 0.25),
+    0 0 120px rgba(255, 42, 42, 0.18);
+}
+
+.text-shadow {
+  text-shadow: 0 0 16px rgba(255, 42, 42, 0.25);
+}
+
+/* Performance: Optimize animations on mobile */
+@media (max-width: 768px) {
+  * {
+    scroll-behavior: auto;
+  }
+  
+  @supports (animation: test) {
+    :root {
+      --animation-duration: 0.1s;
+    }
+  }
+}
+
+/* Disable animations when user requests reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto !important;
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Mobile-specific optimizations */
+@media (max-width: 640px) {
+  /* Reduce motion on mobile by default */
+  * {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-perspective: 1000px;
+    perspective: 1000px;
+  }
+  
+  /* Optimize form inputs on mobile */
+  input, textarea, select {
+    font-size: 16px; /* Prevents zoom on input focus */
+    padding: 10px;
+  }
+}
+
+

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InfinityX Fitness - Diagnostic</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(180deg, #000, #07070a);
+            color: #fff;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #ff2a2a;
+            margin-bottom: 20px;
+        }
+        .check-item {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+        }
+        .status {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        .pass {
+            background: rgba(34, 197, 94, 0.3);
+            color: #22c55e;
+        }
+        .fail {
+            background: rgba(239, 68, 68, 0.3);
+            color: #ef4444;
+        }
+        .warning {
+            background: rgba(245, 158, 11, 0.3);
+            color: #f59e0b;
+        }
+        button {
+            background: #ff2a2a;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            margin: 10px 5px 10px 0;
+        }
+        button:hover {
+            background: #ff1a1a;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 InfinityX Fitness - Diagnostic</h1>
+        
+        <div class="check-item">
+            <strong>DOM Root (#root)</strong>
+            <span id="root-check" class="status fail">Not Found</span>
+            <script>
+                if (document.getElementById('root')) {
+                    document.getElementById('root-check').textContent = 'Found';
+                    document.getElementById('root-check').className = 'status pass';
+                }
+            </script>
+        </div>
+
+        <div class="check-item">
+            <strong>CSS Loaded</strong>
+            <span id="css-check" class="status fail">Checking...</span>
+            <script>
+                setTimeout(() => {
+                    const stylesheets = document.styleSheets.length;
+                    const element = document.getElementById('css-check');
+                    if (stylesheets > 0) {
+                        element.textContent = `Loaded (${stylesheets} sheets)`;
+                        element.className = 'status pass';
+                    } else {
+                        element.textContent = 'Not Loaded';
+                        element.className = 'status fail';
+                    }
+                }, 500);
+            </script>
+        </div>
+
+        <div class="check-item">
+            <strong>React Status</strong>
+            <span id="react-check" class="status warning">Checking...</span>
+            <script>
+                setTimeout(() => {
+                    const element = document.getElementById('react-check');
+                    if (window.React) {
+                        element.textContent = 'Loaded';
+                        element.className = 'status pass';
+                    } else {
+                        element.textContent = 'Not Found';
+                        element.className = 'status fail';
+                    }
+                }, 1000);
+            </script>
+        </div>
+
+        <div class="check-item">
+            <strong>JavaScript Errors</strong>
+            <div id="errors" style="margin-top: 10px;">
+                <p style="color: #22c55e;">✓ No errors yet</p>
+            </div>
+        </div>
+
+        <div style="margin-top: 30px;">
+            <h2 style="color: #ff2a2a; font-size: 18px; margin-bottom: 15px;">Quick Actions</h2>
+            <button onclick="window.location.href = './dist/index.html'">Load Main App (from dist)</button>
+            <button onclick="testAppLoad()">Test App Loading</button>
+            <button onclick="console.log('Check browser console for errors'); alert('Open browser DevTools (F12) to see Console tab for detailed errors')">Open DevTools Guide</button>
+        </div>
+
+        <div style="margin-top: 30px; padding: 15px; background: rgba(255,42,42,0.1); border: 1px solid rgba(255,42,42,0.3); border-radius: 8px;">
+            <strong style="color: #ff2a2a;">🎯 Next Steps:</strong>
+            <ol style="margin-top: 10px; margin-left: 20px;">
+                <li>Open browser DevTools with <code style="background: rgba(0,0,0,0.3); padding: 2px 6px; border-radius: 3px;">F12</code></li>
+                <li>Go to the <strong>Console</strong> tab</li>
+                <li>Look for any red error messages</li>
+                <li>Share the error message if there is one</li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('error', (event) => {
+            const errorDiv = document.getElementById('errors');
+            const errorItem = document.createElement('p');
+            errorItem.style.color = '#ef4444';
+            errorItem.textContent = `❌ ${event.message}`;
+            errorDiv.appendChild(errorItem);
+        });
+
+        function testAppLoad() {
+            const root = document.getElementById('root');
+            if (root) {
+                root.style.background = 'green';
+                root.textContent = 'React root found and working!';
+            } else {
+                alert('React root (#root) not found - this is likely the issue');
+            }
+        }
+
+        // Log to help with debugging
+        console.log('Diagnostic page loaded');
+        console.log('Stylesheets:', document.styleSheets.length);
+        console.log('Scripts:', document.scripts.length);
+    </script>
+</body>
+</html>
