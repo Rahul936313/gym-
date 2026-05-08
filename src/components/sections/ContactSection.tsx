@@ -1,68 +1,16 @@
-import { useMemo, useState } from 'react'
-import { motion } from 'framer-motion'
-import emailjs from '@emailjs/browser'
+
+
+
 import { FaInstagram, FaPhone, FaLocationDot } from 'react-icons/fa6'
 import Reveal from '../common/Reveal'
 import MapEmbedSection from './MapEmbedSection'
 import { site } from '../../content/site'
-import { scrollToId } from '../../utils/scrollToId'
 
-type FormState = {
-  name: string
-  email: string
-  phone: string
-  message: string
-}
 
-export default function ContactSection() {
-  const [form, setForm] = useState<FormState>({
-    name: '',
-    email: '',
-    phone: '',
-    message: '',
-  })
-  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
+ 
+     
 
-  const serviceId = (import.meta.env.VITE_EMAILJS_SERVICE_ID as string | undefined) ?? site.emailjsServiceId
-  const templateId = (import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string | undefined) ?? site.emailjsTemplateId
-  const publicKey =
-    (import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string | undefined) ?? site.emailjsPublicKey
-
-  const canSend = useMemo(() => {
-    if (!form.name.trim()) return false
-    if (!form.email.trim() || !form.email.includes('@')) return false
-    if (!form.message.trim()) return false
-    if (status === 'sending') return false
-    return true
-  }, [form.email, form.message, form.name, status])
-
-  const onSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    if (!canSend) return
-    setStatus('sending')
-    try {
-      await emailjs.send(
-        serviceId,
-        templateId,
-        {
-          from_name: form.name,
-          from_email: form.email,
-          from_phone: form.phone,
-          message: form.message,
-          to_email: site.email,
-        },
-        publicKey,
-      )
-      setStatus('sent')
-      setForm({ name: '', email: '', phone: '', message: '' })
-      // Friendly UX: keep the user on the same section.
-      scrollToId('contact')
-    } catch {
-      setStatus('error')
-    }
-  }
-
-  return (
+  
     <section id="contact" className="px-4 py-16 md:px-6 md:py-24" aria-label="Contact">
       <div className="mx-auto max-w-7xl">
         <Reveal>
@@ -135,6 +83,6 @@ export default function ContactSection() {
         </div>
       
     </section>
-  )
-}
+  
+
 
